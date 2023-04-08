@@ -1,0 +1,28 @@
+<h1 [ngClass]="isColor?'title-green':'title-red'">{{title}}</h1>
+
+<h2 *ngIf="publisher.length<1">No Data</h2>
+<div style= "margin: 20px; float:right">
+  <button class="button" (click)="addPublisher()"> Add Publisher</button>
+</div>
+<table >
+    <thead>
+      <tr>
+        <!-- <th>ID</th> -->
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="publisher.length > 0">
+      <tr *ngFor="let publisher1 of publisher">
+        <td>{{publisher1.name}}</td>
+        <td>{{publisher1.address}}</td>
+        <td>{{publisher1.phone}}</td>
+        <td>{{publisher1.email}}</td>
+        <td>
+          <button (click)="deletePublisher(publisher1.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

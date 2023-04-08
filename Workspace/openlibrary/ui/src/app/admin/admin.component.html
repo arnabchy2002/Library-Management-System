@@ -1,0 +1,27 @@
+<h1 [ngClass]="isColor?'title-green':'title-red'">{{title}}</h1>
+
+<h2 *ngIf="admin.length<1">No Data</h2>
+<div style= "margin: 20px; float:right">
+  <button class="button" (click)="addAdmin()"> Add Admin</button>
+</div>
+<table >
+    <thead>
+      <tr>
+        <!-- <th>ID</th> -->
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="admin.length > 0">
+      <tr *ngFor="let admin1 of admin">
+        <!-- <td>{{book.id}}</td> -->
+        <td>{{admin1.name}}</td>
+        <td>{{admin1.username}}</td>
+        <td>{{admin1.password}}</td>
+        <td>
+          <button (click)="deleteAdmin(admin1.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

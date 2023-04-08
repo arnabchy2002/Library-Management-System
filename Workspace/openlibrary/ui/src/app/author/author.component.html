@@ -1,0 +1,27 @@
+<h1 [ngClass]="isColor?'title-green':'title-red'">{{title}}</h1>
+
+<h2 *ngIf="author.length<1">No Data</h2>
+<div style= "margin: 20px; float:right">
+  <button class="button" (click)="addAuthor()"> Add Author</button>
+</div>
+<table >
+    <thead>
+      <tr>
+        <!-- <th>ID</th> -->
+        <th>Name</th>
+        <th>Birth Date</th>
+        <th>Nationality</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="author.length > 0">
+      <tr *ngFor="let author1 of author">
+        <!-- <td>{{author.id}}</td> -->
+        <td>{{author1.name}}</td>
+        <td>{{author1.birthDate}}</td>
+        <td>{{author1.nationality}}</td>
+        <td>
+          <button (click)="deleteAuthor(author1.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
